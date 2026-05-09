@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { TipoSeccion } from '@/tipos';
-import { CONTACTO } from '@/utilidades/constantes';
 import { generarUrlWhatsapp, MENSAJES_WHATSAPP } from '@/utilidades/whatsapp';
 import estilos from './Navegacion.module.css';
 
@@ -42,6 +41,7 @@ export function Navegacion({ seccionActual, navVisible, alNavegar }: PropsNavega
 
           {/* Links — derecha */}
           <ul
+            id="menu-navegacion"
             className={`${estilos.enlacesNav} ${menuAbierto ? estilos.enlacesNavAbierto : ''}`}
             role="list"
           >
