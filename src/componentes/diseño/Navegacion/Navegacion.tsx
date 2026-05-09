@@ -50,6 +50,7 @@ export function Navegacion({ seccionActual, navVisible, alNavegar }: PropsNavega
                 { id: 'inicio', etiqueta: 'Inicio' },
                 { id: 'desayunos', etiqueta: 'Desayunos' },
                 { id: 'encargos', etiqueta: 'Encargos' },
+                { id: 'contacto', etiqueta: 'Contacto' },
               ] as { id: TipoSeccion; etiqueta: string }[]
             ).map(({ id, etiqueta }) => (
               <li key={id}>
