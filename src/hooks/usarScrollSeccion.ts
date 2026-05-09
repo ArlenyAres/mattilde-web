@@ -1,44 +1,64 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { TipoSeccion } from '@/tipos';
+
+export interface TipoEstadoScroll {
+  seccionActual: TipoSeccion;
+  irASeccion: (seccion: TipoSeccion) => void;
+  navVisible: boolean;
+}
 
 /**
- * Hook que detecta si el usuario ha hecho scroll más allá de un umbral
- * y devuelve la sección activa basándose en los anclas visibles.
+ * Hook para navegación por secciones.
+ * Detecta la sección activa con IntersectionObserver (threshold 0.5)
+ * y expone irASeccion para scroll suave.
+ * navVisible es true cuando el usuario ha scrolleado más de 80px.
  */
-export function usarScrollSeccion(umbral = 80): {
-  scrollActivo: boolean;
-  seccionActiva: string;
-} {
-  const [scrollActivo, setScrollActivo] = useState(false);
-  const [seccionActiva, setSeccionActiva] = useState('inicio');
-  const rafRef = useRef<number | null>(null);
+export function usarScrollSeccion(
+  idsSeccion: ReadonlyArray<TipoSeccion>
+): TipoEstadoScroll {
+  const [seccionActual, setSeccionActual] = useState<TipoSeccion>(idsSeccion[0]);
+  const [navVisible, setNavVisible] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Detecta scroll > 80px para mostrar la nav
   useEffect(() => {
-    const manejarScroll = () => {
-      if (rafRef.current !== null) return;
-      rafRef.current = requestAnimationFrame(() => {
-        setScrollActivo(window.scrollY > umbral);
+    const manejarScroll = () => setNavVisible(window.scrollY > 80);
+    window.addEventListener('scroll', manejarScroll, { passive: true });
+    return () => window.removeEventListener('scroll', manejarScroll);
+  }, []);
 
-        const secciones = document.querySelectorAll<HTMLElement>('section[id]');
-        let activa = 'inicio';
-        secciones.forEach((seccion) => {
-          const top = seccion.getBoundingClientRect().top;
-          if (top <= umbral + 20) {
-            activa = seccion.id;
+  // IntersectionObserver para sección activa
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entradas) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) {
+            setSeccionActual(entrada.target.id as TipoSeccion);
           }
         });
-        setSeccionActiva(activa);
-        rafRef.current = null;
-      });
-    };
+      },
+      { threshold: 0.5 }
+    );
 
-    window.addEventListener('scroll', manejarScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', manejarScroll);
-      if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
+    const elementos: Element[] = [];
+    idsSeccion.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        observerRef.current!.observe(el);
+        elementos.push(el);
       }
-    };
-  }, [umbral]);
+    });
 
-  return { scrollActivo, seccionActiva };
+    return () => {
+      elementos.forEach((el) => observerRef.current?.unobserve(el));
+      observerRef.current?.disconnect();
+    };
+  }, [idsSeccion]);
+
+  const irASeccion = useCallback((seccion: TipoSeccion) => {
+    const el = document.getElementById(seccion);
+    el?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
+  return { seccionActual, irASeccion, navVisible };
 }

@@ -1,17 +1,28 @@
 import { useState } from 'react';
 import { usarScrollSeccion } from '@/hooks/usarScrollSeccion';
 import { NOMBRE_CORTO, ENLACES_NAVEGACION } from '@/utilidades/constantes';
+import type { TipoSeccion } from '@/tipos';
 import estilos from './Navegacion.module.css';
 
+const IDS_SECCION = [
+  'inicio',
+  'historia',
+  'creaciones',
+  'desayunos',
+  'encargos',
+  'resenas',
+  'contacto',
+] as const satisfies ReadonlyArray<TipoSeccion>;
+
 export function Navegacion() {
-  const { scrollActivo, seccionActiva } = usarScrollSeccion(80);
+  const { navVisible, seccionActual } = usarScrollSeccion(IDS_SECCION);
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   const alternarMenu = () => setMenuAbierto((prev) => !prev);
   const cerrarMenu = () => setMenuAbierto(false);
 
   return (
-    <header className={`${estilos.encabezado} ${scrollActivo ? estilos.encabezadoSolido : ''}`}>
+    <header className={`${estilos.encabezado} ${navVisible ? estilos.encabezadoSolido : ''}`}>
       <div className={estilos.contenedorNav}>
         <a href="#inicio" className={estilos.logo} onClick={cerrarMenu}>
           <span className={estilos.logoTexto}>{NOMBRE_CORTO}</span>
@@ -27,7 +38,7 @@ export function Navegacion() {
                 <a
                   href={ancla}
                   className={`${estilos.enlaceNav} ${
-                    seccionActiva === ancla.replace('#', '') ? estilos.enlaceActivo : ''
+                    seccionActual === ancla.replace('#', '') ? estilos.enlaceActivo : ''
                   }`}
                   onClick={cerrarMenu}
                 >

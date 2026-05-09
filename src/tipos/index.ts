@@ -69,3 +69,18 @@ export interface PropsSEO {
   urlCanonica?: string;
   imagen?: string;
 }
+
+export type TipoSeccion =
+  | 'inicio'
+  | 'historia'
+  | 'creaciones'
+  | 'desayunos'
+  | 'encargos'
+  | 'resenas'
+  | 'contacto';
+
+export type TipoMotivoWhatsapp =
+  | 'encargo'
+  | 'desayuno'
+  | 'info'
+  | 'general';
