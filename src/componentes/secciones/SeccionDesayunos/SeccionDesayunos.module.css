@@ -1,0 +1,120 @@
+.seccion {
+  background-color: var(--color-crema);
+  padding: var(--espacio-3xl) var(--espacio-xl);
+}
+
+.contenedor {
+  max-width: var(--contenedor-max);
+  margin-inline: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transicion-lenta), transform var(--transicion-lenta);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: var(--espacio-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+}
+
+.etiqueta {
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  color: var(--color-azul-medio);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(var(--texto-2xl), 4vw, var(--texto-4xl));
+  color: var(--color-marron);
+}
+
+.subtitulo {
+  color: var(--color-marron-medio);
+  font-size: var(--texto-lg);
+  max-width: 500px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+.bloques {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-2xl);
+}
+
+.bloque {
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-lg);
+  padding: var(--espacio-xl);
+  box-shadow: var(--sombra-sm);
+}
+
+.tituloBloque {
+  font-family: var(--fuente-display);
+  font-size: var(--texto-xl);
+  color: var(--color-marron);
+  margin-bottom: var(--espacio-lg);
+  padding-bottom: var(--espacio-sm);
+  border-bottom: 2px solid var(--color-azul-claro);
+}
+
+.listaMenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-lg);
+}
+
+.itemMenu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  padding-bottom: var(--espacio-lg);
+  border-bottom: 1px solid rgba(74, 46, 26, 0.08);
+}
+
+.itemMenu:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.itemEncabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--espacio-sm);
+}
+
+.itemNombre {
+  font-weight: 700;
+  font-size: var(--texto-base);
+  color: var(--color-marron);
+}
+
+.itemPrecio {
+  font-weight: 700;
+  font-size: var(--texto-base);
+  color: var(--color-azul-medio);
+  white-space: nowrap;
+}
+
+.itemDescripcion {
+  font-size: var(--texto-sm);
+  color: var(--color-marron-claro);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .bloques {
+    grid-template-columns: 1fr;
+  }
+}

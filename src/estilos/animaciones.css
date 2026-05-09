@@ -1,0 +1,110 @@
+/* =====================================================
+   Mattilde – Keyframes reutilizables
+   ===================================================== */
+
+@keyframes aparecerArriba {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerAbajo {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecerIzquierda {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aparecerDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes escalar {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes flotarSuave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulsarLento {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes girarLento {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Clases de utilidad para animaciones */
+.animar-arriba {
+  animation: aparecerArriba var(--transicion-lenta) both;
+}
+
+.animar-abajo {
+  animation: aparecerAbajo var(--transicion-lenta) both;
+}
+
+.animar-izquierda {
+  animation: aparecerIzquierda var(--transicion-lenta) both;
+}
+
+.animar-derecha {
+  animation: aparecerDerecha var(--transicion-lenta) both;
+}
+
+.animar-escalar {
+  animation: escalar var(--transicion-lenta) both;
+}
+
+.flotar {
+  animation: flotarSuave 3s ease-in-out infinite;
+}

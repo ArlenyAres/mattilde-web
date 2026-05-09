@@ -1,0 +1,113 @@
+.seccion {
+  background-color: var(--color-crema);
+  padding: var(--espacio-3xl) var(--espacio-xl);
+}
+
+.contenedor {
+  max-width: var(--contenedor-max);
+  margin-inline: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transicion-lenta), transform var(--transicion-lenta);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: var(--espacio-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+}
+
+.etiqueta {
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  color: var(--color-azul-medio);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(var(--texto-2xl), 4vw, var(--texto-4xl));
+  color: var(--color-marron);
+}
+
+.cuadricula {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--espacio-xl);
+}
+
+.tarjeta {
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-lg);
+  padding: var(--espacio-xl);
+  box-shadow: var(--sombra-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  transition: transform var(--transicion-normal), box-shadow var(--transicion-normal);
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-md);
+}
+
+.estrellas {
+  display: flex;
+  gap: 2px;
+}
+
+.estrellaLlena {
+  color: #f59e0b;
+  font-size: var(--texto-lg);
+}
+
+.estrellaVacia {
+  color: #d1d5db;
+  font-size: var(--texto-lg);
+}
+
+.textoReseña {
+  color: var(--color-marron-medio);
+  line-height: 1.7;
+  font-style: italic;
+  flex: 1;
+}
+
+.autor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--espacio-md);
+  border-top: 1px solid rgba(74, 46, 26, 0.08);
+}
+
+.nombreAutor {
+  font-weight: 700;
+  font-size: var(--texto-sm);
+  color: var(--color-marron);
+}
+
+.plataforma {
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  color: var(--color-marron-claro);
+  text-transform: capitalize;
+  background-color: var(--color-crema);
+  padding: 2px 10px;
+  border-radius: var(--radio-full);
+}
+
+@media (max-width: 640px) {
+  .cuadricula {
+    grid-template-columns: 1fr;
+  }
+}

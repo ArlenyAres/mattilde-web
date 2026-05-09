@@ -1,0 +1,52 @@
+import type { TipoTarta } from '@/tipos';
+
+export const menuTartas: TipoTarta[] = [
+  {
+    id: 'tar-01',
+    nombre: 'Tarta de cumpleaños personalizada',
+    descripcion: 'Tarta artesanal decorada a tu gusto. Elige sabor, relleno y diseño. Perfecta para hacer el momento especial.',
+    precio: 45,
+    etiquetas: ['personalizable', 'popular'],
+    disponible: true,
+    personalizaciones: ['Chocolate', 'Vainilla', 'Limón', 'Red Velvet', 'Fresas con nata'],
+    tiempoEncargo: 3,
+  },
+  {
+    id: 'tar-02',
+    nombre: 'Tarta de boda',
+    descripcion: 'Diseños elegantes y únicos para el día más especial. Múltiples pisos y acabados artesanales.',
+    precio: 0,
+    etiquetas: ['premium', 'presupuesto personalizado'],
+    disponible: true,
+    personalizaciones: ['Fondant', 'Buttercream', 'Naked cake', 'Flores naturales'],
+    tiempoEncargo: 14,
+  },
+  {
+    id: 'tar-03',
+    nombre: 'Cheesecake de la semana',
+    descripcion: 'Cheesecake artesanal con base de galleta, relleno cremoso y coulis de frutas de temporada.',
+    precio: 5.5,
+    etiquetas: ['temporada', 'ración'],
+    disponible: true,
+    tiempoEncargo: 0,
+  },
+  {
+    id: 'tar-04',
+    nombre: 'Tarta de comunión',
+    descripcion: 'Celebra el día con una tarta especial decorada para la ocasión.',
+    precio: 0,
+    etiquetas: ['personalizable', 'presupuesto personalizado'],
+    disponible: true,
+    personalizaciones: ['Fondant', 'Buttercream'],
+    tiempoEncargo: 7,
+  },
+  {
+    id: 'tar-05',
+    nombre: 'Tarta vegana',
+    descripcion: 'Sin lácteos, sin huevo. Igual de deliciosa, elaborada con ingredientes de origen vegetal.',
+    precio: 38,
+    etiquetas: ['vegano', 'sin lácteos'],
+    disponible: true,
+    tiempoEncargo: 3,
+  },
+];

@@ -1,0 +1,51 @@
+import type { TipoBebida } from '@/tipos';
+
+export const menuBebidas: TipoBebida[] = [
+  {
+    id: 'beb-01',
+    nombre: 'Café de especialidad',
+    descripcion: 'Granos de origen seleccionado, molido al momento. Disponible en espresso, americano o con leche.',
+    precio: 2.0,
+    etiquetas: ['especialidad'],
+    disponible: true,
+    temperatura: 'caliente',
+    tamanos: ['Simple', 'Doble'],
+  },
+  {
+    id: 'beb-02',
+    nombre: 'Chocolate caliente artesanal',
+    descripcion: 'Chocolate puro fundido con leche entera. Espeso, cremoso y reconfortante.',
+    precio: 3.5,
+    etiquetas: ['artesanal', 'popular'],
+    disponible: true,
+    temperatura: 'caliente',
+  },
+  {
+    id: 'beb-03',
+    nombre: 'Zumo de naranja natural',
+    descripcion: 'Naranja de temporada exprimida al momento.',
+    precio: 2.5,
+    etiquetas: ['natural', 'sin azúcar'],
+    disponible: true,
+    temperatura: 'fría',
+    tamanos: ['Pequeño', 'Grande'],
+  },
+  {
+    id: 'beb-04',
+    nombre: 'Infusión artesanal',
+    descripcion: 'Selección de hierbas aromáticas locales. Pregunta por la variedad del día.',
+    precio: 2.0,
+    etiquetas: ['natural'],
+    disponible: true,
+    temperatura: 'caliente',
+  },
+  {
+    id: 'beb-05',
+    nombre: 'Frappé de café',
+    descripcion: 'Café frío batido con leche y hielo. El refresco perfecto para el verano gaditano.',
+    precio: 4.0,
+    etiquetas: ['frío', 'verano'],
+    disponible: true,
+    temperatura: 'fría',
+  },
+];

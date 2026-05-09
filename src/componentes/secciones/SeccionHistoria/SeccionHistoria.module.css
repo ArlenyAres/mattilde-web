@@ -1,0 +1,135 @@
+.seccion {
+  background-color: var(--color-crema);
+  padding: var(--espacio-3xl) var(--espacio-xl);
+}
+
+.contenedor {
+  max-width: var(--contenedor-max);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-3xl);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transicion-lenta), transform var(--transicion-lenta);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.columnaTexto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-lg);
+}
+
+.etiqueta {
+  font-family: var(--fuente-cuerpo);
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  color: var(--color-azul-medio);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.titulo {
+  font-family: var(--fuente-display);
+  font-size: clamp(var(--texto-2xl), 4vw, var(--texto-4xl));
+  font-weight: 700;
+  color: var(--color-marron);
+  line-height: 1.2;
+}
+
+.parrafo {
+  color: var(--color-marron-medio);
+  line-height: 1.8;
+  font-size: var(--texto-base);
+}
+
+.valores {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+  margin-top: var(--espacio-md);
+}
+
+.valorItem {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  color: var(--color-marron-medio);
+  font-weight: 600;
+}
+
+.valorIcono {
+  color: var(--color-lila);
+  font-size: var(--texto-lg);
+  flex-shrink: 0;
+}
+
+/* Imagen */
+.columnaImagen {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.marcoCuadro {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radio-xl);
+  overflow: hidden;
+  box-shadow: var(--sombra-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.imagenPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-crema) 0%, var(--color-azul-claro) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconoPlaceholder {
+  font-size: 5rem;
+}
+
+.adorno {
+  position: absolute;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3 / 4;
+  border: 3px solid var(--color-lila);
+  border-radius: var(--radio-xl);
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .columnaImagen {
+    order: -1;
+  }
+
+  .marcoCuadro {
+    max-width: 300px;
+    aspect-ratio: 1;
+  }
+
+  .adorno {
+    max-width: 300px;
+    aspect-ratio: 1;
+  }
+}

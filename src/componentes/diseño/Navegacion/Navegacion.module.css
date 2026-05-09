@@ -1,0 +1,142 @@
+.encabezado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.25rem 0;
+  transition: background-color var(--transicion-normal),
+    box-shadow var(--transicion-normal),
+    padding var(--transicion-normal);
+}
+
+.encabezadoSolido {
+  background-color: rgba(255, 253, 248, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--sombra-sm);
+  padding: 0.75rem 0;
+}
+
+.contenedorNav {
+  max-width: var(--contenedor-max);
+  margin-inline: auto;
+  padding-inline: var(--espacio-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logoTexto {
+  font-family: var(--fuente-script);
+  font-size: var(--texto-2xl);
+  font-weight: 700;
+  color: var(--color-marron);
+  transition: color var(--transicion-rapida);
+}
+
+.logoTexto:hover {
+  color: var(--color-azul-medio);
+}
+
+.nav {
+  display: flex;
+}
+
+.listaNav {
+  display: flex;
+  gap: var(--espacio-lg);
+  align-items: center;
+}
+
+.enlaceNav {
+  font-family: var(--fuente-cuerpo);
+  font-weight: 600;
+  font-size: var(--texto-sm);
+  color: var(--color-marron-medio);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--espacio-xs) 0;
+  position: relative;
+  transition: color var(--transicion-rapida);
+}
+
+.enlaceNav::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-azul-medio);
+  border-radius: var(--radio-full);
+  transition: width var(--transicion-normal);
+}
+
+.enlaceNav:hover {
+  color: var(--color-marron);
+}
+
+.enlaceNav:hover::after,
+.enlaceActivo::after {
+  width: 100%;
+}
+
+.enlaceActivo {
+  color: var(--color-marron);
+}
+
+.botonHamburguesa {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--espacio-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.lineaHamburguesa {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-marron);
+  border-radius: var(--radio-full);
+  transition: transform var(--transicion-normal), opacity var(--transicion-normal);
+}
+
+@media (max-width: 768px) {
+  .botonHamburguesa {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100dvh;
+    background-color: var(--color-crema);
+    box-shadow: var(--sombra-lg);
+    padding: 6rem var(--espacio-xl) var(--espacio-xl);
+    transition: right var(--transicion-normal);
+  }
+
+  .navAbierto {
+    right: 0;
+  }
+
+  .listaNav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--espacio-xl);
+  }
+
+  .enlaceNav {
+    font-size: var(--texto-lg);
+  }
+}
