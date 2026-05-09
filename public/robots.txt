@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Sitemap: https://masquetartasmattilde.es/sitemap.xml
 
-Sitemap: https://www.mattilde.es/sitemap.xml
+Disallow: /admin/
+Disallow: /api/

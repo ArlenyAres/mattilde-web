@@ -61,3 +61,11 @@ export interface TipoRedSocial {
   facebook?: string;
   tiktok?: string;
 }
+
+export interface PropsSEO {
+  titulo: string;
+  descripcion: string;
+  palabrasClave?: string[];
+  urlCanonica?: string;
+  imagen?: string;
+}
