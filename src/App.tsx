@@ -1,6 +1,7 @@
 ﻿import { HelmetProvider } from 'react-helmet-async';
 import { CabeceraSEO } from '@/componentes/diseño/CabeceraSEO/CabeceraSEO';
 import { Navegacion } from '@/componentes/diseño/Navegacion/Navegacion';
+import { PuntosNavegacion } from '@/componentes/diseño/PuntosNavegacion/PuntosNavegacion';
 import { PiePagina } from '@/componentes/diseño/PiePagina/PiePagina';
 import { BotonWhatsapp } from '@/componentes/diseño/BotonWhatsapp/BotonWhatsapp';
 import { SeccionHero } from '@/componentes/secciones/SeccionHero/SeccionHero';
@@ -11,9 +12,33 @@ import { SeccionDesayunos } from '@/componentes/secciones/SeccionDesayunos/Secci
 import { SeccionEncargos } from '@/componentes/secciones/SeccionEncargos/SeccionEncargos';
 import { SeccionReseñas } from '@/componentes/secciones/SeccionReseñas/SeccionReseñas';
 import { SeccionContacto } from '@/componentes/secciones/SeccionContacto/SeccionContacto';
+import { usarScrollSeccion } from '@/hooks/usarScrollSeccion';
+import type { TipoSeccion } from '@/tipos';
 import estilos from './App.module.css';
 
+const IDS_SECCION = [
+  'inicio',
+  'historia',
+  'creaciones',
+  'desayunos',
+  'encargos',
+  'resenas',
+  'contacto',
+] as const satisfies ReadonlyArray<TipoSeccion>;
+
+const SECCIONES_PUNTOS: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
+  { id: 'inicio', etiqueta: 'Inicio' },
+  { id: 'historia', etiqueta: 'Nosotros' },
+  { id: 'creaciones', etiqueta: 'Creaciones' },
+  { id: 'desayunos', etiqueta: 'Desayunos' },
+  { id: 'encargos', etiqueta: 'Encargos' },
+  { id: 'resenas', etiqueta: 'Reseñas' },
+  { id: 'contacto', etiqueta: 'Contacto' },
+];
+
 export default function App() {
+  const { seccionActual, irASeccion, navVisible } = usarScrollSeccion(IDS_SECCION);
+
   return (
     <HelmetProvider>
       <CabeceraSEO
@@ -32,8 +57,17 @@ export default function App() {
           'más que tartas Mattilde',
         ]}
       />
+      <Navegacion
+        seccionActual={seccionActual}
+        navVisible={navVisible}
+        alNavegar={irASeccion}
+      />
+      <PuntosNavegacion
+        secciones={SECCIONES_PUNTOS}
+        seccionActual={seccionActual}
+        alNavegar={irASeccion}
+      />
       <div className={estilos.aplicacion}>
-        <Navegacion />
         <main>
           <SeccionHero />
           <SeccionCarrusel />

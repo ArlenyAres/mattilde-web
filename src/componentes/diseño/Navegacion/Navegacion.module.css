@@ -1,22 +1,32 @@
+﻿/* =====================================================
+   Navegacion – barra de navegación principal
+   ===================================================== */
+
 .encabezado {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  padding: 1.25rem 0;
-  transition: background-color var(--transicion-normal),
-    box-shadow var(--transicion-normal),
-    padding var(--transicion-normal);
+  z-index: var(--z-navegacion);
+  padding: 1rem 0;
+  transition:
+    background-color var(--transicion-media),
+    box-shadow var(--transicion-media),
+    border-bottom-color var(--transicion-media),
+    padding var(--transicion-media);
+  border-bottom: 1px solid transparent;
 }
 
 .encabezadoSolido {
   background-color: var(--color-crema-a95);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--sombra-sm);
-  padding: 0.75rem 0;
+  border-bottom-color: var(--color-arena);
+  padding: 0.6rem 0;
 }
 
+/* ── Contenedor interno ── */
 .contenedorNav {
   max-width: var(--contenedor-max);
   margin-inline: auto;
@@ -24,35 +34,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--espacio-lg);
 }
 
+/* ── Logo — izquierda ── */
 .logo {
-  text-decoration: none;
-}
-
-.logoTexto {
   font-family: var(--fuente-script);
   font-size: var(--texto-2xl);
   font-weight: 700;
-  color: var(--color-marron);
-  transition: color var(--transicion-rapida);
+  color: var(--color-azul-profundo);
+  text-decoration: none;
+  transition: color var(--transicion-rapida), transform var(--transicion-rapida);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.logoTexto:hover {
+.logo:hover {
   color: var(--color-azul-medio);
+  transform: scale(1.03);
 }
 
-.nav {
+/* ── Links (derecha) ── */
+.enlacesNav {
   display: flex;
-}
-
-.listaNav {
-  display: flex;
-  gap: var(--espacio-lg);
   align-items: center;
+  justify-content: flex-end;
+  gap: var(--espacio-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .enlaceNav {
+  background: none;
+  border: none;
+  cursor: pointer;
   font-family: var(--fuente-cuerpo);
   font-weight: 600;
   font-size: var(--texto-sm);
@@ -72,8 +88,8 @@
   width: 0;
   height: 2px;
   background-color: var(--color-azul-medio);
-  border-radius: var(--radio-full);
-  transition: width var(--transicion-normal);
+  border-radius: var(--radio-pill);
+  transition: width var(--transicion-media);
 }
 
 .enlaceNav:hover {
@@ -89,6 +105,32 @@
   color: var(--color-marron);
 }
 
+/* ── Botón Pedir ── */
+.botonPedido {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.4rem 1rem;
+  background-color: var(--color-azul-claro);
+  color: var(--color-marron);
+  font-family: var(--fuente-cuerpo);
+  font-weight: 700;
+  font-size: var(--texto-sm);
+  text-decoration: none;
+  border-radius: var(--radio-pill);
+  transition:
+    background-color var(--transicion-rapida),
+    transform var(--transicion-rapida);
+  white-space: nowrap;
+}
+
+.botonPedido:hover {
+  background-color: var(--color-azul-medio);
+  color: var(--color-blanco);
+  transform: translateY(-1px);
+}
+
+/* ── Hamburguesa (solo mobile) ── */
 .botonHamburguesa {
   display: none;
   flex-direction: column;
@@ -97,6 +139,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  justify-self: end;
 }
 
 .lineaHamburguesa {
@@ -104,36 +147,34 @@
   width: 24px;
   height: 2px;
   background-color: var(--color-marron);
-  border-radius: var(--radio-full);
-  transition: transform var(--transicion-normal), opacity var(--transicion-normal);
+  border-radius: var(--radio-pill);
+  transition: transform var(--transicion-media), opacity var(--transicion-media);
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
   .botonHamburguesa {
     display: flex;
   }
 
-  .nav {
+  .enlacesNav {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    max-width: 320px;
+    width: min(80vw, 320px);
     height: 100dvh;
-    background-color: var(--color-crema);
-    box-shadow: var(--sombra-lg);
-    padding: 6rem var(--espacio-xl) var(--espacio-xl);
-    transition: right var(--transicion-normal);
-  }
-
-  .navAbierto {
-    right: 0;
-  }
-
-  .listaNav {
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     gap: var(--espacio-xl);
+    background-color: var(--color-crema);
+    box-shadow: var(--sombra-lg);
+    padding: var(--espacio-3xl) var(--espacio-xl);
+    transition: right var(--transicion-media);
+  }
+
+  .enlacesNavAbierto {
+    right: 0;
   }
 
   .enlaceNav {

@@ -1,65 +1,94 @@
 import { useState } from 'react';
-import { usarScrollSeccion } from '@/hooks/usarScrollSeccion';
-import { NOMBRE_CORTO, ENLACES_NAVEGACION } from '@/utilidades/constantes';
 import type { TipoSeccion } from '@/tipos';
+import { CONTACTO } from '@/utilidades/constantes';
+import { generarUrlWhatsapp, MENSAJES_WHATSAPP } from '@/utilidades/whatsapp';
 import estilos from './Navegacion.module.css';
 
-const IDS_SECCION = [
-  'inicio',
-  'historia',
-  'creaciones',
-  'desayunos',
-  'encargos',
-  'resenas',
-  'contacto',
-] as const satisfies ReadonlyArray<TipoSeccion>;
+export interface PropsNavegacion {
+  seccionActual: TipoSeccion;
+  navVisible: boolean;
+  alNavegar: (seccion: TipoSeccion) => void;
+}
 
-export function Navegacion() {
-  const { navVisible, seccionActual } = usarScrollSeccion(IDS_SECCION);
+const urlWhatsappPedido = generarUrlWhatsapp(MENSAJES_WHATSAPP.encargo);
+
+export function Navegacion({ seccionActual, navVisible, alNavegar }: PropsNavegacion) {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   const alternarMenu = () => setMenuAbierto((prev) => !prev);
   const cerrarMenu = () => setMenuAbierto(false);
 
-  return (
-    <header className={`${estilos.encabezado} ${navVisible ? estilos.encabezadoSolido : ''}`}>
-      <div className={estilos.contenedorNav}>
-        <a href="#inicio" className={estilos.logo} onClick={cerrarMenu}>
-          <span className={estilos.logoTexto}>{NOMBRE_CORTO}</span>
-        </a>
+  const manejarNavegar = (seccion: TipoSeccion) => {
+    alNavegar(seccion);
+    cerrarMenu();
+  };
 
-        <nav
-          className={`${estilos.nav} ${menuAbierto ? estilos.navAbierto : ''}`}
-          aria-label="Navegación principal"
-        >
-          <ul className={estilos.listaNav}>
-            {ENLACES_NAVEGACION.map(({ etiqueta, ancla }) => (
-              <li key={ancla}>
-                <a
-                  href={ancla}
-                  className={`${estilos.enlaceNav} ${
-                    seccionActual === ancla.replace('#', '') ? estilos.enlaceActivo : ''
-                  }`}
-                  onClick={cerrarMenu}
+  return (
+    <header
+      role="banner"
+      className={`${estilos.encabezado} ${navVisible ? estilos.encabezadoSolido : ''}`}
+    >
+      <nav aria-label="Navegación principal">
+        <div className={estilos.contenedorNav}>
+          {/* Logo — izquierda/centro */}
+          <a
+            href="#inicio"
+            className={estilos.logo}
+            onClick={() => manejarNavegar('inicio')}
+            aria-label="Más que Tartas Mattilde - Ir al inicio"
+          >
+            Mattilde
+          </a>
+
+          {/* Links — derecha */}
+          <ul
+            className={`${estilos.enlacesNav} ${menuAbierto ? estilos.enlacesNavAbierto : ''}`}
+            role="list"
+          >
+            {(
+              [
+                { id: 'inicio', etiqueta: 'Inicio' },
+                { id: 'desayunos', etiqueta: 'Desayunos' },
+                { id: 'encargos', etiqueta: 'Encargos' },
+              ] as { id: TipoSeccion; etiqueta: string }[]
+            ).map(({ id, etiqueta }) => (
+              <li key={id}>
+                <button
+                  className={`${estilos.enlaceNav} ${seccionActual === id ? estilos.enlaceActivo : ''}`}
+                  onClick={() => manejarNavegar(id)}
+                  aria-current={seccionActual === id ? 'true' : undefined}
                 >
                   {etiqueta}
-                </a>
+                </button>
               </li>
             ))}
+            <li>
+              <a
+                href={urlWhatsappPedido}
+                className={estilos.botonPedido}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Hacer un pedido por WhatsApp"
+              >
+                💬 Pedir
+              </a>
+            </li>
           </ul>
-        </nav>
 
-        <button
-          className={estilos.botonHamburguesa}
-          onClick={alternarMenu}
-          aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={menuAbierto}
-        >
-          <span className={`${estilos.lineaHamburguesa} ${menuAbierto ? estilos.lineaActiva : ''}`} />
-          <span className={`${estilos.lineaHamburguesa} ${menuAbierto ? estilos.lineaActiva : ''}`} />
-          <span className={`${estilos.lineaHamburguesa} ${menuAbierto ? estilos.lineaActiva : ''}`} />
-        </button>
-      </div>
+          {/* Hamburguesa — mobile */}
+          <button
+            className={estilos.botonHamburguesa}
+            onClick={alternarMenu}
+            aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuAbierto}
+            aria-controls="menu-navegacion"
+          >
+            <span className={`${estilos.lineaHamburguesa} ${menuAbierto ? estilos.lineaActiva : ''}`} />
+            <span className={`${estilos.lineaHamburguesa} ${menuAbierto ? estilos.lineaActiva : ''}`} />
+            <span className={`${estilos.lineaHamburguesa} ${menuAbierto ? estilos.lineaActiva : ''}`} />
+          </button>
+        </div>
+      </nav>
     </header>
   );
 }
