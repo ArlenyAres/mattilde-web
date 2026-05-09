@@ -15,6 +15,11 @@
   font: inherit;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
 /* ── Smooth scroll ── */
 html {
   scroll-behavior: smooth;
