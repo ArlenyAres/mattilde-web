@@ -2,21 +2,47 @@
    Mattilde – Tokens de diseño globales
    ===================================================== */
 :root {
-  /* Colores de marca */
-  --color-azul-claro:   #86D8F7;
-  --color-azul-medio:   #5AC8F0;
-  --color-crema:        #FFFDF8;
-  --color-blanco:       #FFFFFF;
-  --color-lila:         #DE9AE3;
-  --color-marron:       #4A2E1A;
-  --color-marron-medio: #7A5030;
-  --color-marron-claro: #B89070;
-  --color-sombra:       rgba(42, 158, 196, 0.15);
+  /* Paleta principal */
+  --color-azul-claro:    #86D8F7;
+  --color-azul-medio:    #5AC8F0;
+  --color-azul-profundo: #2A9EC4;
+  --color-azul-palido:   #E3F6FD;
+  --color-azul-luz:      #C5ECFA;
+  --color-lila:          #DE9AE3;
+  --color-lila-palido:   #F5E6F8;
+  --color-crema:         #FFFDF8;
+  --color-crema-calida:  #FFF8EC;
+  --color-arena:         #E8D9BE;
+  --color-blanco:        #FFFFFF;
+
+  /* Texto */
+  --color-texto:         #3A2010;
+  --color-texto-medio:   #7A5030;
+  --color-texto-claro:   #B89070;
+  --color-marron:        #4A2E1A;
+  --color-marron-medio:  #7A4D2E;
+
+  /* Sombras */
+  --sombra-suave:   rgba(42,158,196,0.12);
+  --sombra-media:   rgba(42,158,196,0.22);
+  --sombra-fuerte:  rgba(42,158,196,0.35);
 
   /* Tipografía */
-  --fuente-display: 'Playfair Display', serif;
+  --fuente-display: 'Playfair Display', Georgia, serif;
   --fuente-script:  'Dancing Script', cursive;
-  --fuente-cuerpo:  'Nunito', sans-serif;
+  --fuente-cuerpo:  'Nunito', system-ui, sans-serif;
+
+  /* Escalas tipográficas */
+  --texto-xs:   0.72rem;
+  --texto-sm:   0.85rem;
+  --texto-base: 1rem;
+  --texto-md:   1.1rem;
+  --texto-lg:   1.35rem;
+  --texto-xl:   1.6rem;
+  --texto-2xl:  2.2rem;
+  --texto-3xl:  3rem;
+  --texto-4xl:  4rem;
+  --texto-hero: clamp(3.2rem, 7vw, 5.5rem);
 
   /* Espaciado */
   --espacio-xs:  0.25rem;
@@ -25,37 +51,81 @@
   --espacio-lg:  1.5rem;
   --espacio-xl:  2rem;
   --espacio-2xl: 3rem;
-  --espacio-3xl: 4rem;
+  --espacio-3xl: 5rem;
+  --espacio-seccion: clamp(60px, 10vh, 120px);
 
   /* Bordes */
-  --radio-sm:   0.25rem;
-  --radio-md:   0.5rem;
-  --radio-lg:   1rem;
-  --radio-xl:   1.5rem;
-  --radio-full: 9999px;
-
-  /* Sombras */
-  --sombra-sm: 0 2px 8px var(--color-sombra);
-  --sombra-md: 0 4px 16px var(--color-sombra);
-  --sombra-lg: 0 8px 32px var(--color-sombra);
+  --radio-sm:   8px;
+  --radio-md:   16px;
+  --radio-lg:   24px;
+  --radio-xl:   32px;
+  --radio-pill: 9999px;
 
   /* Transiciones */
   --transicion-rapida:  150ms ease;
-  --transicion-normal:  300ms ease;
-  --transicion-lenta:   500ms ease;
+  --transicion-media:   250ms ease;
+  --transicion-lenta:   400ms ease;
 
-  /* Tamaños de fuente */
-  --texto-xs:   0.75rem;
-  --texto-sm:   0.875rem;
-  --texto-base: 1rem;
-  --texto-lg:   1.125rem;
-  --texto-xl:   1.25rem;
-  --texto-2xl:  1.5rem;
-  --texto-3xl:  1.875rem;
-  --texto-4xl:  2.25rem;
-  --texto-5xl:  3rem;
+  /* Z-index */
+  --z-fondo:       -1;
+  --z-base:         0;
+  --z-flotante:    10;
+  --z-navegacion: 100;
+  --z-modal:      200;
+  --z-whatsapp:   500;
 
-  /* Ancho máximo */
-  --contenedor-max: 1200px;
-  --contenedor-md:  800px;
+  /* Colores especiales */
+  --color-whatsapp:       #25d366;
+  --color-whatsapp-hover: #1ebe5c;
+  --color-lila-hover:     #cf88d5;
+  --color-estrellas:      #f59e0b;
+  --color-estrella-vacia: #d1d5db;
+
+  /* Variantes con transparencia – crema (255, 253, 248) */
+  --color-crema-a10: rgba(255, 253, 248, 0.10);
+  --color-crema-a40: rgba(255, 253, 248, 0.40);
+  --color-crema-a70: rgba(255, 253, 248, 0.70);
+  --color-crema-a95: rgba(255, 253, 248, 0.95);
+
+  /* Variantes con transparencia – marrón (74, 46, 26) */
+  --color-marron-a08: rgba(74, 46, 26, 0.08);
+
+  /* Variantes con transparencia – azul claro (134, 216, 247) */
+  --color-azul-claro-a12: rgba(134, 216, 247, 0.12);
+  --color-azul-claro-a18: rgba(134, 216, 247, 0.18);
+  --color-azul-claro-a20: rgba(134, 216, 247, 0.20);
+  --color-azul-claro-a30: rgba(134, 216, 247, 0.30);
+
+  /* Variantes con transparencia – azul medio (90, 200, 240) */
+  --color-azul-medio-a20: rgba(90, 200, 240, 0.20);
+  --color-azul-medio-a30: rgba(90, 200, 240, 0.30);
+  --color-azul-medio-a35: rgba(90, 200, 240, 0.35);
+  --color-azul-medio-a45: rgba(90, 200, 240, 0.45);
+
+  /* Variantes con transparencia – azul profundo (42, 158, 196) */
+  --color-azul-profundo-a12: rgba(42, 158, 196, 0.12);
+  --color-azul-profundo-a35: rgba(42, 158, 196, 0.35);
+  --color-azul-profundo-a65: rgba(42, 158, 196, 0.65);
+
+  /* Variantes con transparencia – lila (222, 154, 227) */
+  --color-lila-a12: rgba(222, 154, 227, 0.12);
+  --color-lila-a15: rgba(222, 154, 227, 0.15);
+  --color-lila-a20: rgba(222, 154, 227, 0.20);
+  --color-lila-a30: rgba(222, 154, 227, 0.30);
+  --color-lila-a35: rgba(222, 154, 227, 0.35);
+  --color-lila-a40: rgba(222, 154, 227, 0.40);
+  --color-lila-a50: rgba(222, 154, 227, 0.50);
+
+  /* Variantes con transparencia – whatsapp (37, 211, 102) */
+  --color-whatsapp-a35: rgba(37, 211, 102, 0.35);
+  --color-whatsapp-a45: rgba(37, 211, 102, 0.45);
+
+  /* Aliases de compatibilidad con nombres anteriores */
+  --color-marron-claro: var(--color-texto-claro);
+  --radio-full:         var(--radio-pill);
+  --contenedor-max:     1200px;
+  --sombra-sm:          0 2px  8px var(--sombra-suave);
+  --sombra-md:          0 4px 16px var(--sombra-media);
+  --sombra-lg:          0 8px 32px var(--sombra-fuerte);
+  --transicion-normal:  var(--transicion-media);
 }
