@@ -41,7 +41,7 @@
   --texto-xl:   1.6rem;
   --texto-2xl:  2.2rem;
   --texto-3xl:  3rem;
-  --texto-4xl:  var(--texto-hero);
+  --texto-4xl:  4rem;
   --texto-hero: clamp(3.2rem, 7vw, 5.5rem);
 
   /* Espaciado */
