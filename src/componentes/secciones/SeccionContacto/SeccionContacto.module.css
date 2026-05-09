@@ -123,7 +123,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background-color: #25d366;
+  background-color: var(--color-whatsapp);
   color: var(--color-blanco);
   font-weight: 700;
   font-size: var(--texto-sm);
@@ -132,7 +132,7 @@
 }
 
 .botonWhatsapp:hover {
-  background-color: #1ebe5c;
+  background-color: var(--color-whatsapp-hover);
   transform: translateY(-2px);
 }
 
@@ -166,7 +166,7 @@
 .mapaPlaceholder {
   width: 100%;
   aspect-ratio: 1;
-  background: linear-gradient(135deg, rgba(134, 216, 247, 0.2), rgba(222, 154, 227, 0.2));
+  background: linear-gradient(135deg, var(--color-azul-claro-a20), var(--color-lila-a20));
   display: flex;
   flex-direction: column;
   align-items: center;

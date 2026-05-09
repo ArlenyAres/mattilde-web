@@ -78,6 +78,16 @@
   transform: translateY(0);
 }
 
+/* Respeta la preferencia de movimiento reducido:
+   muestra el contenido directamente sin animación */
+@media (prefers-reduced-motion: reduce) {
+  .animarAlScroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .retrasado-1 { transition-delay: 0.1s; }
 .retrasado-2 { transition-delay: 0.2s; }
 .retrasado-3 { transition-delay: 0.3s; }

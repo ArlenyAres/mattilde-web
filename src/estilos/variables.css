@@ -72,4 +72,54 @@
   --z-navegacion: 100;
   --z-modal:      200;
   --z-whatsapp:   500;
+
+  /* Colores especiales */
+  --color-whatsapp:       #25d366;
+  --color-whatsapp-hover: #1ebe5c;
+  --color-lila-hover:     #cf88d5;
+  --color-estrellas:      #f59e0b;
+  --color-estrella-vacia: #d1d5db;
+
+  /* Variantes con transparencia – crema (255, 253, 248) */
+  --color-crema-a10: rgba(255, 253, 248, 0.10);
+  --color-crema-a40: rgba(255, 253, 248, 0.40);
+  --color-crema-a70: rgba(255, 253, 248, 0.70);
+  --color-crema-a95: rgba(255, 253, 248, 0.95);
+
+  /* Variantes con transparencia – marrón (74, 46, 26) */
+  --color-marron-a08: rgba(74, 46, 26, 0.08);
+
+  /* Variantes con transparencia – azul claro (134, 216, 247) */
+  --color-azul-claro-a12: rgba(134, 216, 247, 0.12);
+  --color-azul-claro-a18: rgba(134, 216, 247, 0.18);
+  --color-azul-claro-a20: rgba(134, 216, 247, 0.20);
+  --color-azul-claro-a30: rgba(134, 216, 247, 0.30);
+
+  /* Variantes con transparencia – azul medio (90, 200, 240) */
+  --color-azul-medio-a20: rgba(90, 200, 240, 0.20);
+  --color-azul-medio-a30: rgba(90, 200, 240, 0.30);
+  --color-azul-medio-a35: rgba(90, 200, 240, 0.35);
+  --color-azul-medio-a45: rgba(90, 200, 240, 0.45);
+
+  /* Variantes con transparencia – lila (222, 154, 227) */
+  --color-lila-a12: rgba(222, 154, 227, 0.12);
+  --color-lila-a15: rgba(222, 154, 227, 0.15);
+  --color-lila-a20: rgba(222, 154, 227, 0.20);
+  --color-lila-a30: rgba(222, 154, 227, 0.30);
+  --color-lila-a35: rgba(222, 154, 227, 0.35);
+  --color-lila-a40: rgba(222, 154, 227, 0.40);
+  --color-lila-a50: rgba(222, 154, 227, 0.50);
+
+  /* Variantes con transparencia – whatsapp (37, 211, 102) */
+  --color-whatsapp-a35: rgba(37, 211, 102, 0.35);
+  --color-whatsapp-a45: rgba(37, 211, 102, 0.45);
+
+  /* Aliases de compatibilidad con nombres anteriores */
+  --color-marron-claro: var(--color-texto-claro);
+  --radio-full:         var(--radio-pill);
+  --contenedor-max:     1200px;
+  --sombra-sm:          0 2px  8px var(--sombra-suave);
+  --sombra-md:          0 4px 16px var(--sombra-media);
+  --sombra-lg:          0 8px 32px var(--sombra-fuerte);
+  --transicion-normal:  var(--transicion-media);
 }

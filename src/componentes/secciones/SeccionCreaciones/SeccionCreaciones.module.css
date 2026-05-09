@@ -69,7 +69,7 @@
 
 .imagenTarjeta {
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, rgba(134, 216, 247, 0.3), rgba(222, 154, 227, 0.3));
+  background: linear-gradient(135deg, var(--color-azul-claro-a30), var(--color-lila-a30));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,9 +111,9 @@
   font-weight: 600;
   padding: 2px 10px;
   border-radius: var(--radio-full);
-  background-color: rgba(134, 216, 247, 0.2);
+  background-color: var(--color-azul-claro-a20);
   color: var(--color-azul-medio);
-  border: 1px solid rgba(90, 200, 240, 0.3);
+  border: 1px solid var(--color-azul-medio-a30);
   text-transform: capitalize;
 }
 

@@ -74,7 +74,7 @@
   font-family: var(--fuente-display);
   font-size: var(--texto-4xl);
   font-weight: 700;
-  color: rgba(222, 154, 227, 0.35);
+  color: var(--color-lila-a35);
   line-height: 1;
 }
 
@@ -103,7 +103,7 @@
   align-items: center;
   gap: var(--espacio-lg);
   padding: var(--espacio-2xl);
-  background: linear-gradient(135deg, rgba(134, 216, 247, 0.12), rgba(222, 154, 227, 0.12));
+  background: linear-gradient(135deg, var(--color-azul-claro-a12), var(--color-lila-a12));
   border-radius: var(--radio-xl);
 }
 
@@ -126,11 +126,11 @@
   transition: background-color var(--transicion-normal),
     transform var(--transicion-normal),
     box-shadow var(--transicion-normal);
-  box-shadow: 0 4px 16px rgba(222, 154, 227, 0.4);
+  box-shadow: 0 4px 16px var(--color-lila-a40);
 }
 
 .botonCta:hover {
-  background-color: #cf88d5;
+  background-color: var(--color-lila-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(222, 154, 227, 0.5);
+  box-shadow: 0 8px 24px var(--color-lila-a50);
 }

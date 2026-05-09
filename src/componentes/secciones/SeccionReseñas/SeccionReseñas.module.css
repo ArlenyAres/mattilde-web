@@ -66,12 +66,12 @@
 }
 
 .estrellaLlena {
-  color: #f59e0b;
+  color: var(--color-estrellas);
   font-size: var(--texto-lg);
 }
 
 .estrellaVacia {
-  color: #d1d5db;
+  color: var(--color-estrella-vacia);
   font-size: var(--texto-lg);
 }
 
@@ -87,7 +87,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: var(--espacio-md);
-  border-top: 1px solid rgba(74, 46, 26, 0.08);
+  border-top: 1px solid var(--color-marron-a08);
 }
 
 .nombreAutor {
