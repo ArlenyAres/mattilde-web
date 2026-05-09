@@ -29,16 +29,6 @@ export const GEO = {
   localidad: 'Chiclana de la Frontera',
 } as const;
 
-export const ENLACES_NAVEGACION = [
-  { etiqueta: 'Inicio', ancla: '#inicio' },
-  { etiqueta: 'Nosotros', ancla: '#historia' },
-  { etiqueta: 'Creaciones', ancla: '#creaciones' },
-  { etiqueta: 'Desayunos', ancla: '#desayunos' },
-  { etiqueta: 'Encargos', ancla: '#encargos' },
-  { etiqueta: 'Reseñas', ancla: '#resenas' },
-  { etiqueta: 'Contacto', ancla: '#contacto' },
-] as const;
-
 export const META_DESCRIPCION =
   'Cafetería, obrador y pastelería artesanal en Chiclana de la Frontera. Tartas personalizadas, desayunos y dulces hechos con amor por Mattilde.';
 

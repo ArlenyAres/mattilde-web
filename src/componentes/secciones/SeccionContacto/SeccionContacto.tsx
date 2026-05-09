@@ -78,7 +78,7 @@ export function SeccionContacto() {
           <div className={estilos.bloqueMapa}>
             <iframe
               className={estilos.mapa}
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.4!2d-6.1739416!3d36.3955377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDIzJzQ0LjAiTiA2wrAxMCcyNi4yIlc!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses&q=Ctra.+de+la+Barrosa,+118,+local+27+y+28,+11130+Chiclana+de+la+Frontera,+C%C3%A1diz"
+              src="https://www.google.com/maps?q=Ctra.+de+la+Barrosa,+118,+local+27+y+28,+11130+Chiclana+de+la+Frontera,+C%C3%A1diz&output=embed"
               title={`Ubicación de ${NOMBRE_NEGOCIO}`}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
