@@ -16,17 +16,7 @@ import { usarScrollSeccion } from '@/hooks/usarScrollSeccion';
 import type { TipoSeccion } from '@/tipos';
 import estilos from './App.module.css';
 
-const IDS_SECCION = [
-  'inicio',
-  'historia',
-  'creaciones',
-  'desayunos',
-  'encargos',
-  'resenas',
-  'contacto',
-] as const satisfies ReadonlyArray<TipoSeccion>;
-
-const SECCIONES_PUNTOS: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
+const SECCIONES: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
   { id: 'inicio', etiqueta: 'Inicio' },
   { id: 'historia', etiqueta: 'Nosotros' },
   { id: 'creaciones', etiqueta: 'Creaciones' },
@@ -34,6 +24,14 @@ const SECCIONES_PUNTOS: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
   { id: 'encargos', etiqueta: 'Encargos' },
   { id: 'resenas', etiqueta: 'Reseñas' },
   { id: 'contacto', etiqueta: 'Contacto' },
+];
+
+const IDS_SECCION = SECCIONES.map((s) => s.id);
+
+const ENLACES_NAV: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
+  { id: 'inicio', etiqueta: 'Inicio' },
+  { id: 'desayunos', etiqueta: 'Desayunos' },
+  { id: 'encargos', etiqueta: 'Encargos' },
 ];
 
 export default function App() {
@@ -61,9 +59,10 @@ export default function App() {
         seccionActual={seccionActual}
         navVisible={navVisible}
         alNavegar={irASeccion}
+        enlaces={ENLACES_NAV}
       />
       <PuntosNavegacion
-        secciones={SECCIONES_PUNTOS}
+        secciones={SECCIONES}
         seccionActual={seccionActual}
         alNavegar={irASeccion}
       />

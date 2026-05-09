@@ -7,11 +7,12 @@ export interface PropsNavegacion {
   seccionActual: TipoSeccion;
   navVisible: boolean;
   alNavegar: (seccion: TipoSeccion) => void;
+  enlaces: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }>;
 }
 
 const urlWhatsappPedido = generarUrlWhatsapp(MENSAJES_WHATSAPP.encargo);
 
-export function Navegacion({ seccionActual, navVisible, alNavegar }: PropsNavegacion) {
+export function Navegacion({ seccionActual, navVisible, alNavegar, enlaces }: PropsNavegacion) {
   const [menuAbierto, setMenuAbierto] = useState(false);
 
   const alternarMenu = () => setMenuAbierto((prev) => !prev);
@@ -45,13 +46,7 @@ export function Navegacion({ seccionActual, navVisible, alNavegar }: PropsNavega
             className={`${estilos.enlacesNav} ${menuAbierto ? estilos.enlacesNavAbierto : ''}`}
             role="list"
           >
-            {(
-              [
-                { id: 'inicio', etiqueta: 'Inicio' },
-                { id: 'desayunos', etiqueta: 'Desayunos' },
-                { id: 'encargos', etiqueta: 'Encargos' },
-              ] as { id: TipoSeccion; etiqueta: string }[]
-            ).map(({ id, etiqueta }) => (
+            {enlaces.map(({ id, etiqueta }) => (
               <li key={id}>
                 <button
                   className={`${estilos.enlaceNav} ${seccionActual === id ? estilos.enlaceActivo : ''}`}

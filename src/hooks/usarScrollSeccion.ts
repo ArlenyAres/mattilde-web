@@ -9,7 +9,7 @@ export interface TipoEstadoScroll {
 
 /**
  * Hook para navegación por secciones.
- * Detecta la sección activa con IntersectionObserver (threshold 0.5)
+ * Detecta la sección activa con IntersectionObserver (rootMargin -30% vertical, threshold 0)
  * y expone irASeccion para scroll suave.
  * navVisible es true cuando el usuario ha scrolleado más de 80px.
  */
@@ -37,7 +37,7 @@ export function usarScrollSeccion(
           }
         });
       },
-      { threshold: 0.5 }
+      { rootMargin: '-30% 0px -30% 0px', threshold: 0 }
     );
 
     const elementos: Element[] = [];
