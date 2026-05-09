@@ -10,7 +10,7 @@ export const CONTACTO: TipoContacto = {
   telefono: '+34956401952',
   whatsapp: '+34956401952',
   email: 'hola@masquetartasmattilde.es',
-  direccion: 'Urb. Cortijo Los Gallos 21, Chiclana de la Frontera, Cádiz, 11130',
+  direccion: 'Ctra. de la Barrosa, 118, local 27 y 28, 11130 Chiclana de la Frontera, Cádiz',
   horarios: [
     { dias: 'Lunes a viernes', apertura: '08:30', cierre: '14:00' },
     { dias: 'Sábados', apertura: '09:00', cierre: '14:00' },

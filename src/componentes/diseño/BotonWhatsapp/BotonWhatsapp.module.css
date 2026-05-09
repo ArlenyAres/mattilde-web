@@ -1,48 +1,43 @@
 .boton {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  gap: var(--espacio-sm);
+  bottom: 28px;
+  right: 28px;
+  z-index: var(--z-whatsapp);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
   background-color: var(--color-whatsapp);
   color: var(--color-blanco);
-  border-radius: var(--radio-full);
-  padding: 0.875rem 1.25rem;
-  box-shadow: 0 4px 20px var(--color-whatsapp-a35);
-  transition: transform var(--transicion-normal),
-    box-shadow var(--transicion-normal);
-  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulsarSombra 2.5s ease-in-out infinite;
+  transition: transform var(--transicion-rapida);
 }
 
 .boton:hover {
-  transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 8px 28px var(--color-whatsapp-a45);
+  transform: scale(1.12);
+  animation-play-state: paused;
 }
 
 .icono {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
-}
-
-.etiqueta {
-  font-family: var(--fuente-cuerpo);
-  font-weight: 700;
-  font-size: var(--texto-sm);
-  white-space: nowrap;
 }
 
 @media (max-width: 480px) {
   .boton {
-    bottom: 1.25rem;
-    right: 1.25rem;
-    padding: 0.875rem;
-    border-radius: 50%;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
   }
 
-  .etiqueta {
-    display: none;
+  .icono {
+    width: 24px;
+    height: 24px;
   }
 }
