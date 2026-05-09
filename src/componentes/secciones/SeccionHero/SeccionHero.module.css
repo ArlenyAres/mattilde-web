@@ -1,178 +1,285 @@
-.hero {
+﻿/* =====================================================
+   SeccionHero – primera sección visible
+   ===================================================== */
+
+.seccionHero {
   position: relative;
   min-height: 100dvh;
   display: flex;
   align-items: center;
   background-color: var(--color-crema);
   overflow: hidden;
-  padding: 8rem var(--espacio-xl) var(--espacio-3xl);
+  padding: 7rem var(--espacio-xl) var(--espacio-3xl);
 }
 
-.contenido {
-  position: relative;
+/* ── Fondo guingán ── */
+.fondoGuingan {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ── Corazones decorativos flotantes ── */
+.corazon1,
+.corazon2 {
+  position: absolute;
+  font-size: 2rem;
+  animation: flotarSuave 4s ease-in-out infinite;
+  pointer-events: none;
   z-index: 1;
+  opacity: 0.35;
+}
+
+.corazon1 {
+  top: 12%;
+  left: 6%;
+  animation-delay: 0s;
+}
+
+.corazon2 {
+  bottom: 16%;
+  right: 8%;
+  animation-delay: 1.8s;
+}
+
+/* ── Contenedor principal: 2 columnas ── */
+.contenidoHero {
+  position: relative;
+  z-index: 2;
+  width: 100%;
   max-width: var(--contenedor-max);
   margin-inline: auto;
-  width: 100%;
-  max-width: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-3xl);
+  align-items: center;
 }
 
-.subtituloSuperior {
-  font-family: var(--fuente-cuerpo);
+/* ── Columna texto ── */
+.columnaTexto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xl);
+}
+
+/* ── Pretítulo ── */
+.pretitulo {
   font-size: var(--texto-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-azul-medio);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--espacio-md);
   animation: aparecerArriba 0.6s ease both;
+  animation-delay: 0.1s;
 }
 
-.titulo {
+/* ── Título hero ── */
+.tituloHero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  line-height: 0.95;
+  animation: aparecerArriba 0.6s ease both;
+  animation-delay: 0.25s;
+}
+
+.scriptHero {
+  display: block;
   font-family: var(--fuente-script);
-  font-size: clamp(var(--texto-4xl), 8vw, 5rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-azul-profundo);
+  line-height: 1.2;
   font-weight: 700;
-  color: var(--color-marron);
-  line-height: 1.1;
-  margin-bottom: var(--espacio-lg);
-  animation: aparecerArriba 0.6s 0.1s ease both;
 }
 
-.descripcion {
+.lineaPrincipal {
+  display: block;
+  font-family: var(--fuente-display);
+  font-size: var(--texto-hero);
+  color: var(--color-marron);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lineaAcento {
+  display: block;
+  font-family: var(--fuente-display);
+  font-size: var(--texto-hero);
+  color: var(--color-azul-profundo);
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* ── Descripción ── */
+.descripcionHero {
   font-size: var(--texto-lg);
   color: var(--color-marron-medio);
-  line-height: 1.7;
-  margin-bottom: var(--espacio-2xl);
-  max-width: 520px;
-  animation: aparecerArriba 0.6s 0.2s ease both;
+  line-height: 1.75;
+  max-width: 480px;
+  animation: aparecerArriba 0.6s ease both;
+  animation-delay: 0.45s;
 }
 
-.acciones {
+/* ── Botones ── */
+.botonesHero {
   display: flex;
   gap: var(--espacio-md);
   flex-wrap: wrap;
-  animation: aparecerArriba 0.6s 0.3s ease both;
+  animation: aparecerArriba 0.6s ease both;
+  animation-delay: 0.6s;
 }
 
 .botonPrimario {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--espacio-xs);
   padding: 0.875rem 2rem;
-  background-color: var(--color-azul-medio);
-  color: var(--color-blanco);
+  background-color: var(--color-azul-claro);
+  color: var(--color-marron);
   font-family: var(--fuente-cuerpo);
   font-weight: 700;
   font-size: var(--texto-base);
-  border-radius: var(--radio-full);
-  transition: background-color var(--transicion-normal),
-    transform var(--transicion-normal),
-    box-shadow var(--transicion-normal);
-  box-shadow: 0 4px 16px var(--color-azul-medio-a35);
+  border: none;
+  border-radius: var(--radio-pill);
+  cursor: pointer;
+  transition:
+    background-color var(--transicion-rapida),
+    transform var(--transicion-rapida),
+    box-shadow var(--transicion-rapida);
 }
 
 .botonPrimario:hover {
-  background-color: var(--color-azul-claro);
+  background-color: var(--color-azul-medio);
+  color: var(--color-blanco);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px var(--color-azul-medio-a45);
+  box-shadow: var(--sombra-md);
 }
 
 .botonSecundario {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--espacio-xs);
   padding: 0.875rem 2rem;
-  border: 2px solid var(--color-azul-medio);
-  color: var(--color-azul-medio);
+  background-color: transparent;
+  color: var(--color-azul-profundo);
   font-family: var(--fuente-cuerpo);
   font-weight: 700;
   font-size: var(--texto-base);
-  border-radius: var(--radio-full);
-  transition: background-color var(--transicion-normal),
-    color var(--transicion-normal),
-    transform var(--transicion-normal);
+  border: 2px solid var(--color-azul-profundo);
+  border-radius: var(--radio-pill);
+  cursor: pointer;
+  transition:
+    background-color var(--transicion-rapida),
+    color var(--transicion-rapida),
+    transform var(--transicion-rapida);
 }
 
 .botonSecundario:hover {
-  background-color: var(--color-azul-medio);
+  background-color: var(--color-azul-profundo);
   color: var(--color-blanco);
   transform: translateY(-2px);
 }
 
-/* Decoración */
-.decoracion {
-  position: absolute;
-  right: -100px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
+/* ── Columna visual ── */
+.columnaVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
 }
 
-.circuloGrande {
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--color-azul-claro-a18) 0%, transparent 70%);
+.circuloFondo {
   position: absolute;
-  right: -200px;
-  top: -300px;
-  animation: flotarSuave 6s ease-in-out infinite;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-azul-claro-a40),
+    var(--color-lila-a40)
+  );
+  animation: morfoBurbuja 8s ease-in-out infinite;
 }
 
-.circuloMedio {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--color-lila-a15) 0%, transparent 70%);
-  position: absolute;
-  right: 100px;
-  top: -100px;
-  animation: flotarSuave 5s ease-in-out infinite reverse;
+.emojiTarta {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(7rem, 12vw, 10rem);
+  animation: flotarSuave 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
 }
 
-.circuloPequeno {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--color-azul-medio-a20) 0%, transparent 70%);
+/* ── Badges flotantes ── */
+.badgeArtisanal,
+.badgeChiclana,
+.badgeEstrellas {
   position: absolute;
-  right: 300px;
-  top: 100px;
+  background-color: var(--color-blanco);
+  border-radius: var(--radio-lg);
+  padding: 0.5rem 0.875rem;
+  font-size: var(--texto-sm);
+  font-weight: 700;
+  color: var(--color-marron);
+  box-shadow: var(--sombra-md);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.badgeArtisanal {
+  top: 12%;
+  left: 0;
   animation: flotarSuave 4s ease-in-out infinite;
+  animation-delay: 0.5s;
 }
 
-@keyframes aparecerArriba {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.badgeChiclana {
+  bottom: 18%;
+  left: 4%;
+  animation: flotarSuave 4.5s ease-in-out infinite;
+  animation-delay: 1.2s;
 }
 
-@keyframes flotarSuave {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+.badgeEstrellas {
+  top: 20%;
+  right: 0;
+  animation: flotarSuave 3.8s ease-in-out infinite;
+  animation-delay: 0.8s;
 }
 
+.badgeEstrellas span {
+  color: var(--color-estrellas);
+}
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 7rem;
-    text-align: center;
+  .seccionHero {
+    padding-top: 6rem;
+    padding-bottom: var(--espacio-2xl);
+    align-items: flex-start;
   }
 
-  .descripcion {
+  .contenidoHero {
+    grid-template-columns: 1fr;
+  }
+
+  .columnaVisual {
+    display: none;
+  }
+
+  .descripcionHero {
     max-width: none;
   }
+}
 
-  .acciones {
-    justify-content: center;
-  }
-
-  .decoracion {
-    opacity: 0.4;
-    right: -200px;
+/* ── prefers-reduced-motion: quitar animaciones de entrada ── */
+@media (prefers-reduced-motion: reduce) {
+  .pretitulo,
+  .tituloHero,
+  .descripcionHero,
+  .botonesHero {
+    animation: none;
   }
 }

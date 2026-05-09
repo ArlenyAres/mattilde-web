@@ -69,7 +69,10 @@ export default function App() {
       />
       <div className={estilos.aplicacion}>
         <main>
-          <SeccionHero />
+          <SeccionHero
+              alVerTartas={() => irASeccion('creaciones')}
+              alEncargar={() => irASeccion('encargos')}
+            />
           <SeccionCarrusel />
           <SeccionHistoria />
           <SeccionCreaciones />
