@@ -1,6 +1,6 @@
 .pie {
-  background-color: var(--color-marron);
-  color: var(--color-crema);
+  background-color: var(--color-azul-claro);
+  color: var(--color-marron);
   padding: var(--espacio-3xl) 0 0;
 }
 
@@ -25,12 +25,12 @@
   font-family: var(--fuente-script);
   font-size: var(--texto-2xl);
   font-weight: 700;
-  color: var(--color-azul-claro);
+  color: var(--color-azul-profundo);
 }
 
 .descripcion {
   font-size: var(--texto-sm);
-  color: var(--color-marron-claro);
+  color: var(--color-blanco);
   line-height: 1.7;
   max-width: 280px;
 }
@@ -39,7 +39,7 @@
   font-family: var(--fuente-display);
   font-size: var(--texto-base);
   font-weight: 700;
-  color: var(--color-azul-claro);
+  color: var(--color-azul-profundo);
   margin-bottom: var(--espacio-sm);
 }
 
@@ -49,11 +49,11 @@
   flex-direction: column;
   gap: var(--espacio-sm);
   font-size: var(--texto-sm);
-  color: var(--color-marron-claro);
+  color: var(--color-blanco);
 }
 
 .direccion a {
-  color: var(--color-marron-claro);
+  color: var(--color-blanco);
   transition: color var(--transicion-rapida);
 }
 
@@ -75,7 +75,7 @@
 }
 
 .dias {
-  color: var(--color-marron-claro);
+  color: var(--color-blanco);
   font-weight: 600;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .enlaceInstagram:hover {
-  color: var(--color-azul-claro);
+  color: var(--color-azul-profundo);
 }
 
 @media (max-width: 768px) {

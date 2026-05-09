@@ -3,21 +3,31 @@ import type { TipoContacto } from '@/tipos';
 export const NOMBRE_NEGOCIO = 'Más que Tartas Mattilde';
 export const NOMBRE_CORTO = 'Mattilde';
 export const SLOGAN = 'Obrador artesanal en Chiclana de la Frontera';
+export const URL_SITIO = 'https://masquetartasmattilde.es';
+export const URL_IMAGEN_OG = `${URL_SITIO}/og-image.jpg`;
 
 export const CONTACTO: TipoContacto = {
-  telefono: '+34 600 000 000',
-  whatsapp: '+34600000000',
-  email: 'hola@mattilde.es',
-  direccion: 'Chiclana de la Frontera, Cádiz',
+  telefono: '+34956401952',
+  whatsapp: '+34956401952',
+  email: 'hola@masquetartasmattilde.es',
+  direccion: 'Urb. Cortijo Los Gallos 21, Chiclana de la Frontera, Cádiz, 11130',
   horarios: [
     { dias: 'Lunes a viernes', apertura: '08:30', cierre: '14:00' },
     { dias: 'Sábados', apertura: '09:00', cierre: '14:00' },
     { dias: 'Domingos', apertura: 'Cerrado', cierre: '' },
   ],
   redesSociales: {
-    instagram: 'https://instagram.com/mattilde.tartas',
+    instagram: 'https://www.instagram.com/masquetartas_mattilde',
+    facebook: 'https://www.facebook.com/profile.php?id=100057190971481',
   },
 };
+
+export const GEO = {
+  latitud: 36.3955377,
+  longitud: -6.1739416,
+  region: 'ES-CA',
+  localidad: 'Chiclana de la Frontera',
+} as const;
 
 export const ENLACES_NAVEGACION = [
   { etiqueta: 'Inicio', ancla: '#inicio' },
