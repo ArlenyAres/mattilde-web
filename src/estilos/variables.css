@@ -2,21 +2,46 @@
    Mattilde – Tokens de diseño globales
    ===================================================== */
 :root {
-  /* Colores de marca */
-  --color-azul-claro:   #86D8F7;
-  --color-azul-medio:   #5AC8F0;
-  --color-crema:        #FFFDF8;
-  --color-blanco:       #FFFFFF;
-  --color-lila:         #DE9AE3;
-  --color-marron:       #4A2E1A;
-  --color-marron-medio: #7A5030;
-  --color-marron-claro: #B89070;
-  --color-sombra:       rgba(42, 158, 196, 0.15);
+  /* Paleta principal */
+  --color-azul-claro:    #86D8F7;
+  --color-azul-medio:    #5AC8F0;
+  --color-azul-profundo: #2A9EC4;
+  --color-azul-palido:   #E3F6FD;
+  --color-azul-luz:      #C5ECFA;
+  --color-lila:          #DE9AE3;
+  --color-lila-palido:   #F5E6F8;
+  --color-crema:         #FFFDF8;
+  --color-crema-calida:  #FFF8EC;
+  --color-arena:         #E8D9BE;
+  --color-blanco:        #FFFFFF;
+
+  /* Texto */
+  --color-texto:         #3A2010;
+  --color-texto-medio:   #7A5030;
+  --color-texto-claro:   #B89070;
+  --color-marron:        #4A2E1A;
+  --color-marron-medio:  #7A4D2E;
+
+  /* Sombras */
+  --sombra-suave:   rgba(42,158,196,0.12);
+  --sombra-media:   rgba(42,158,196,0.22);
+  --sombra-fuerte:  rgba(42,158,196,0.35);
 
   /* Tipografía */
-  --fuente-display: 'Playfair Display', serif;
+  --fuente-display: 'Playfair Display', Georgia, serif;
   --fuente-script:  'Dancing Script', cursive;
-  --fuente-cuerpo:  'Nunito', sans-serif;
+  --fuente-cuerpo:  'Nunito', system-ui, sans-serif;
+
+  /* Escalas tipográficas */
+  --texto-xs:   0.72rem;
+  --texto-sm:   0.85rem;
+  --texto-base: 1rem;
+  --texto-md:   1.1rem;
+  --texto-lg:   1.35rem;
+  --texto-xl:   1.6rem;
+  --texto-2xl:  2.2rem;
+  --texto-3xl:  3rem;
+  --texto-hero: clamp(3.2rem, 7vw, 5.5rem);
 
   /* Espaciado */
   --espacio-xs:  0.25rem;
@@ -25,37 +50,26 @@
   --espacio-lg:  1.5rem;
   --espacio-xl:  2rem;
   --espacio-2xl: 3rem;
-  --espacio-3xl: 4rem;
+  --espacio-3xl: 5rem;
+  --espacio-seccion: clamp(60px, 10vh, 120px);
 
   /* Bordes */
-  --radio-sm:   0.25rem;
-  --radio-md:   0.5rem;
-  --radio-lg:   1rem;
-  --radio-xl:   1.5rem;
-  --radio-full: 9999px;
-
-  /* Sombras */
-  --sombra-sm: 0 2px 8px var(--color-sombra);
-  --sombra-md: 0 4px 16px var(--color-sombra);
-  --sombra-lg: 0 8px 32px var(--color-sombra);
+  --radio-sm:   8px;
+  --radio-md:   16px;
+  --radio-lg:   24px;
+  --radio-xl:   32px;
+  --radio-pill: 9999px;
 
   /* Transiciones */
   --transicion-rapida:  150ms ease;
-  --transicion-normal:  300ms ease;
-  --transicion-lenta:   500ms ease;
+  --transicion-media:   250ms ease;
+  --transicion-lenta:   400ms ease;
 
-  /* Tamaños de fuente */
-  --texto-xs:   0.75rem;
-  --texto-sm:   0.875rem;
-  --texto-base: 1rem;
-  --texto-lg:   1.125rem;
-  --texto-xl:   1.25rem;
-  --texto-2xl:  1.5rem;
-  --texto-3xl:  1.875rem;
-  --texto-4xl:  2.25rem;
-  --texto-5xl:  3rem;
-
-  /* Ancho máximo */
-  --contenedor-max: 1200px;
-  --contenedor-md:  800px;
+  /* Z-index */
+  --z-fondo:       -1;
+  --z-base:         0;
+  --z-flotante:    10;
+  --z-navegacion: 100;
+  --z-modal:      200;
+  --z-whatsapp:   500;
 }

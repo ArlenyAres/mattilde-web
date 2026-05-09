@@ -1,89 +1,82 @@
 /* =====================================================
    Mattilde – Reset y estilos base
    ===================================================== */
+@import './variables.css';
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600;700&family=Nunito:wght@300;400;600;700&display=swap');
 
+/* ── CSS Reset moderno ── */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font: inherit;
 }
 
+/* ── Smooth scroll ── */
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
+/* ── Base ── */
 body {
   font-family: var(--fuente-cuerpo);
-  font-weight: 400;
+  color: var(--color-texto);
   background-color: var(--color-crema);
-  color: var(--color-marron);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img,
-video {
+/* ── Focus visible accesible ── */
+:focus-visible {
+  outline: 2px solid var(--color-azul-profundo);
+  outline-offset: 3px;
+  border-radius: var(--radio-sm);
+}
+
+/* ── Reducción de movimiento ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ── Selección de texto con color de marca ── */
+::selection {
+  background-color: var(--color-azul-luz);
+  color: var(--color-marron);
+}
+
+/* ── Imágenes responsivas ── */
+img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* ── Clase utilitaria screen readers ── */
+.visualmenteOculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
-}
-
-input,
-textarea,
-select {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--fuente-display);
-  line-height: 1.2;
-  color: var(--color-marron);
-}
-
-section {
-  padding: var(--espacio-3xl) var(--espacio-xl);
-}
-
-.contenedor {
-  max-width: var(--contenedor-max);
-  margin-inline: auto;
-  padding-inline: var(--espacio-xl);
-}
-
-@media (max-width: 768px) {
-  section {
-    padding: var(--espacio-2xl) var(--espacio-md);
-  }
-
-  .contenedor {
-    padding-inline: var(--espacio-md);
-  }
+/* ── Patrón guingán (gingham) ── */
+.fondoGuingan {
+  background-color: var(--color-crema-calida);
+  background-image:
+    linear-gradient(var(--color-azul-luz) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-azul-luz) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

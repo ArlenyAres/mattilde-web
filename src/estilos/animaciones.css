@@ -16,66 +16,36 @@
 @keyframes aparecerAbajo {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes aparecerIzquierda {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes aparecerDerecha {
-  from {
-    opacity: 0;
-    transform: translateX(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes escalar {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 
 @keyframes flotarSuave {
-  0%, 100% {
+  0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-@keyframes pulsarLento {
+@keyframes pulsarSombra {
   0%, 100% {
-    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(42, 158, 196, 0.35);
   }
   50% {
-    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(42, 158, 196, 0.65), 0 0 0 8px rgba(42, 158, 196, 0.12);
   }
 }
 
-@keyframes girarLento {
+@keyframes rotarLento {
   from {
     transform: rotate(0deg);
   }
@@ -84,27 +54,44 @@
   }
 }
 
-/* Clases de utilidad para animaciones */
-.animar-arriba {
-  animation: aparecerArriba var(--transicion-lenta) both;
+@keyframes morfoBurbuja {
+  0%, 100% {
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  }
+  33% {
+    border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%;
+  }
+  66% {
+    border-radius: 55% 45% 60% 40% / 45% 55% 50% 50%;
+  }
 }
 
-.animar-abajo {
-  animation: aparecerAbajo var(--transicion-lenta) both;
+/* ── Clases de utilidad: animar al scroll ── */
+.animarAlScroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.animar-izquierda {
-  animation: aparecerIzquierda var(--transicion-lenta) both;
+.animarAlScroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.animar-derecha {
-  animation: aparecerDerecha var(--transicion-lenta) both;
-}
+.retrasado-1 { transition-delay: 0.1s; }
+.retrasado-2 { transition-delay: 0.2s; }
+.retrasado-3 { transition-delay: 0.3s; }
+.retrasado-4 { transition-delay: 0.4s; }
 
-.animar-escalar {
-  animation: escalar var(--transicion-lenta) both;
-}
-
+/* ── Clases de animación directa ── */
 .flotar {
   animation: flotarSuave 3s ease-in-out infinite;
+}
+
+.rotarLento {
+  animation: rotarLento 20s linear infinite;
+}
+
+.morfoBurbuja {
+  animation: morfoBurbuja 6s ease-in-out infinite;
 }
