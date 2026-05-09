@@ -102,6 +102,8 @@
   --color-azul-medio-a45: rgba(90, 200, 240, 0.45);
 
   /* Variantes con transparencia – azul profundo (42, 158, 196) */
+  --color-azul-profundo-a12: rgba(42, 158, 196, 0.12);
+  --color-azul-profundo-a35: rgba(42, 158, 196, 0.35);
   --color-azul-profundo-a65: rgba(42, 158, 196, 0.65);
 
   /* Variantes con transparencia – lila (222, 154, 227) */

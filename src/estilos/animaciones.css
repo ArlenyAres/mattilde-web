@@ -38,10 +38,10 @@
 
 @keyframes pulsarSombra {
   0%, 100% {
-    box-shadow: 0 4px 15px var(--sombra-fuerte);
+    box-shadow: 0 4px 15px var(--color-azul-profundo-a35);
   }
   50% {
-    box-shadow: 0 8px 30px var(--color-azul-profundo-a65), 0 0 0 8px var(--sombra-suave);
+    box-shadow: 0 8px 30px var(--color-azul-profundo-a65), 0 0 0 8px var(--color-azul-profundo-a12);
   }
 }
 
