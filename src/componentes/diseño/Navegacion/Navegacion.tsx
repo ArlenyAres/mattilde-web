@@ -44,7 +44,6 @@ export function Navegacion({ seccionActual, navVisible, alNavegar, enlaces }: Pr
           <ul
             id="menu-navegacion"
             className={`${estilos.enlacesNav} ${menuAbierto ? estilos.enlacesNavAbierto : ''}`}
-            role="list"
           >
             {enlaces.map(({ id, etiqueta }) => (
               <li key={id}>
