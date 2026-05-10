@@ -32,6 +32,7 @@ const ENLACES_NAV: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
   { id: 'inicio', etiqueta: 'Inicio' },
   { id: 'desayunos', etiqueta: 'Desayunos' },
   { id: 'encargos', etiqueta: 'Encargos' },
+  { id: 'contacto', etiqueta: 'Contacto' },
 ];
 
 export default function App() {
@@ -68,7 +69,10 @@ export default function App() {
       />
       <div className={estilos.aplicacion}>
         <main>
-          <SeccionHero />
+          <SeccionHero
+              alVerTartas={() => irASeccion('creaciones')}
+              alEncargar={() => irASeccion('encargos')}
+            />
           <SeccionCarrusel />
           <SeccionHistoria />
           <SeccionCreaciones />
