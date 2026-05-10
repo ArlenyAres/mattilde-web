@@ -17,7 +17,7 @@ export function PuntosNavegacion({
       className={estilos.contenedor}
       aria-label="Navegación por secciones"
     >
-      <ul role="list" className={estilos.lista}>
+      <ul className={estilos.lista}>
         {secciones.map(({ id, etiqueta }) => {
           const activo = seccionActual === id;
           return (

@@ -71,6 +71,24 @@ img {
   display: block;
 }
 
+/* ── Skip link (accesibilidad) ── */
+.saltar-contenido {
+  position: absolute;
+  top: -100%;
+  left: var(--espacio-md);
+  background-color: var(--color-marron);
+  color: var(--color-crema);
+  padding: var(--espacio-sm) var(--espacio-lg);
+  border-radius: var(--radio-sm);
+  font-weight: 700;
+  z-index: var(--z-modal);
+  text-decoration: none;
+}
+
+.saltar-contenido:focus {
+  top: var(--espacio-md);
+}
+
 /* ── Clase utilitaria screen readers ── */
 .visualmenteOculto {
   position: absolute;

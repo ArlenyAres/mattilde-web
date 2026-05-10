@@ -1,20 +1,56 @@
-﻿import { HelmetProvider } from 'react-helmet-async';
+import { lazy, Suspense } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { CabeceraSEO } from '@/componentes/diseño/CabeceraSEO/CabeceraSEO';
 import { Navegacion } from '@/componentes/diseño/Navegacion/Navegacion';
 import { PuntosNavegacion } from '@/componentes/diseño/PuntosNavegacion/PuntosNavegacion';
 import { PiePagina } from '@/componentes/diseño/PiePagina/PiePagina';
 import { BotonWhatsapp } from '@/componentes/diseño/BotonWhatsapp/BotonWhatsapp';
 import { SeccionHero } from '@/componentes/secciones/SeccionHero/SeccionHero';
-import { SeccionCarrusel } from '@/componentes/secciones/SeccionCarrusel/SeccionCarrusel';
-import { SeccionHistoria } from '@/componentes/secciones/SeccionHistoria/SeccionHistoria';
-import { SeccionCreaciones } from '@/componentes/secciones/SeccionCreaciones/SeccionCreaciones';
-import { SeccionDesayunos } from '@/componentes/secciones/SeccionDesayunos/SeccionDesayunos';
-import { SeccionEncargos } from '@/componentes/secciones/SeccionEncargos/SeccionEncargos';
-import { SeccionReseñas } from '@/componentes/secciones/SeccionReseñas/SeccionReseñas';
-import { SeccionContacto } from '@/componentes/secciones/SeccionContacto/SeccionContacto';
 import { usarScrollSeccion } from '@/hooks/usarScrollSeccion';
 import type { TipoSeccion } from '@/tipos';
 import estilos from './App.module.css';
+
+const SeccionCarrusel = lazy(() =>
+  import('@/componentes/secciones/SeccionCarrusel/SeccionCarrusel').then((m) => ({
+    default: m.SeccionCarrusel,
+  }))
+);
+const SeccionHistoria = lazy(() =>
+  import('@/componentes/secciones/SeccionHistoria/SeccionHistoria').then((m) => ({
+    default: m.SeccionHistoria,
+  }))
+);
+const SeccionCreaciones = lazy(() =>
+  import('@/componentes/secciones/SeccionCreaciones/SeccionCreaciones').then((m) => ({
+    default: m.SeccionCreaciones,
+  }))
+);
+const SeccionDesayunos = lazy(() =>
+  import('@/componentes/secciones/SeccionDesayunos/SeccionDesayunos').then((m) => ({
+    default: m.SeccionDesayunos,
+  }))
+);
+const SeccionEncargos = lazy(() =>
+  import('@/componentes/secciones/SeccionEncargos/SeccionEncargos').then((m) => ({
+    default: m.SeccionEncargos,
+  }))
+);
+const SeccionReseñas = lazy(() =>
+  import('@/componentes/secciones/SeccionReseñas/SeccionReseñas').then((m) => ({
+    default: m.SeccionReseñas,
+  }))
+);
+const SeccionContacto = lazy(() =>
+  import('@/componentes/secciones/SeccionContacto/SeccionContacto').then((m) => ({
+    default: m.SeccionContacto,
+  }))
+);
+
+function FallbackSeccion() {
+  return (
+    <div style={{ minHeight: '400px' }} role="status" aria-label="Cargando sección…" />
+  );
+}
 
 const SECCIONES: ReadonlyArray<{ id: TipoSeccion; etiqueta: string }> = [
   { id: 'inicio', etiqueta: 'Inicio' },
@@ -68,18 +104,32 @@ export default function App() {
         alNavegar={irASeccion}
       />
       <div className={estilos.aplicacion}>
-        <main>
+        <main id="contenido-principal">
           <SeccionHero
-              alVerTartas={() => irASeccion('creaciones')}
-              alEncargar={() => irASeccion('encargos')}
-            />
-          <SeccionCarrusel />
-          <SeccionHistoria />
-          <SeccionCreaciones />
-          <SeccionDesayunos />
-          <SeccionEncargos />
-          <SeccionReseñas />
-          <SeccionContacto />
+            alVerTartas={() => irASeccion('creaciones')}
+            alEncargar={() => irASeccion('encargos')}
+          />
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionCarrusel />
+          </Suspense>
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionHistoria />
+          </Suspense>
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionCreaciones />
+          </Suspense>
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionDesayunos />
+          </Suspense>
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionEncargos />
+          </Suspense>
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionReseñas />
+          </Suspense>
+          <Suspense fallback={<FallbackSeccion />}>
+            <SeccionContacto />
+          </Suspense>
         </main>
         <PiePagina />
         <BotonWhatsapp />
