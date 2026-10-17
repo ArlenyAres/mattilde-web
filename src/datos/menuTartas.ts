@@ -3,6 +3,7 @@ import type { TipoTarta } from '@/tipos';
 export const menuTartas: TipoTarta[] = [
   {
     id: 'tar-01',
+    imagen: '/imagenes/tarta-cumpleanos.jpg',
     nombre: 'Tarta de cumpleaños personalizada',
     descripcion: 'Tarta artesanal decorada a tu gusto. Elige sabor, relleno y diseño. Perfecta para hacer el momento especial.',
     precio: 45,
@@ -13,6 +14,7 @@ export const menuTartas: TipoTarta[] = [
   },
   {
     id: 'tar-02',
+    imagen: '/imagenes/tarta-boda.jpg',
     nombre: 'Tarta de boda',
     descripcion: 'Diseños elegantes y únicos para el día más especial. Múltiples pisos y acabados artesanales.',
     precio: 0,
@@ -23,6 +25,7 @@ export const menuTartas: TipoTarta[] = [
   },
   {
     id: 'tar-03',
+    imagen: '/imagenes/cheesecake.jpg',
     nombre: 'Cheesecake de la semana',
     descripcion: 'Cheesecake artesanal con base de galleta, relleno cremoso y coulis de frutas de temporada.',
     precio: 5.5,
@@ -32,6 +35,7 @@ export const menuTartas: TipoTarta[] = [
   },
   {
     id: 'tar-04',
+    imagen: '/imagenes/tarta-comunion.jpg',
     nombre: 'Tarta de comunión',
     descripcion: 'Celebra el día con una tarta especial decorada para la ocasión.',
     precio: 0,
@@ -42,6 +46,7 @@ export const menuTartas: TipoTarta[] = [
   },
   {
     id: 'tar-05',
+    imagen: '/imagenes/tarta-vegana.jpg',
     nombre: 'Tarta vegana',
     descripcion: 'Sin lácteos, sin huevo. Igual de deliciosa, elaborada con ingredientes de origen vegetal.',
     precio: 38,

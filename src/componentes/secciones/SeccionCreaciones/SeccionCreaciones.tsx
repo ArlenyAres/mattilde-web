@@ -19,8 +19,19 @@ export function SeccionCreaciones() {
         <ul className={estilos.cuadricula}>
           {menuTartas.map((tarta) => (
             <li key={tarta.id} className={estilos.tarjeta}>
-              <div className={estilos.imagenTarjeta} role="img" aria-label={tarta.nombre}>
-                <span className={estilos.iconoTarjeta}>🎂</span>
+              <div className={estilos.imagenTarjeta}>
+                {tarta.imagen ? (
+                  <img
+                    className={estilos.fotoTarjeta}
+                    src={tarta.imagen}
+                    alt={tarta.nombre}
+                    loading="lazy"
+                    width={960}
+                    height={720}
+                  />
+                ) : (
+                  <span className={estilos.iconoTarjeta} role="img" aria-label={tarta.nombre}>🎂</span>
+                )}
               </div>
               <div className={estilos.cuerpoTarjeta}>
                 <h3 className={estilos.nombreTarta}>{tarta.nombre}</h3>

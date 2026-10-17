@@ -88,6 +88,14 @@
   z-index: 1;
 }
 
+.foto {
+  filter: saturate(0.95) contrast(1.03);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .imagenPlaceholder {
   width: 100%;
   height: 100%;
@@ -132,4 +140,19 @@
     max-width: 300px;
     aspect-ratio: 1;
   }
+}
+
+.marcoCuadro {
+  position: relative;
+}
+
+.marcoCuadro::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(74, 46, 26, 0.45) 0%, rgba(74, 46, 26, 0.08) 45%, transparent 70%),
+    linear-gradient(135deg, rgba(134, 216, 247, 0.12), rgba(222, 154, 227, 0.12));
+  transition: opacity var(--transicion-normal);
 }

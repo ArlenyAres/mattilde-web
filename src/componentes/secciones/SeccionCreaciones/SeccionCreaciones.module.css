@@ -73,6 +73,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+.fotoTarjeta {
+  filter: saturate(0.95) contrast(1.03);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transicion-lenta);
+}
+
+.tarjeta:hover .fotoTarjeta {
+  transform: scale(1.05);
 }
 
 .iconoTarjeta {
@@ -128,4 +141,23 @@
   .cuadricula {
     grid-template-columns: 1fr;
   }
+}
+
+.imagenTarjeta {
+  position: relative;
+}
+
+.imagenTarjeta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(74, 46, 26, 0.45) 0%, rgba(74, 46, 26, 0.08) 45%, transparent 70%),
+    linear-gradient(135deg, rgba(134, 216, 247, 0.12), rgba(222, 154, 227, 0.12));
+  transition: opacity var(--transicion-normal);
+}
+
+.tarjeta:hover .imagenTarjeta::after {
+  opacity: 0.6;
 }

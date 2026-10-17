@@ -41,9 +41,14 @@ export function SeccionHistoria() {
         </div>
         <div className={estilos.columnaImagen}>
           <div className={estilos.marcoCuadro}>
-            <div className={estilos.imagenPlaceholder} role="img" aria-label="Mattilde en su obrador">
-              <span className={estilos.iconoPlaceholder}>👩‍🍳</span>
-            </div>
+            <img
+              className={estilos.foto}
+              src="/imagenes/tarta-boda-elegante.jpg"
+              alt="Elegante tarta de boda blanca de fondant con flores de azúcar"
+              loading="lazy"
+              width={900}
+              height={1200}
+            />
           </div>
           <div className={estilos.adorno} aria-hidden="true" />
         </div>

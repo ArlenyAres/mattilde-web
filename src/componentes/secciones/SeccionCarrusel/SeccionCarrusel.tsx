@@ -19,13 +19,8 @@ export function SeccionCarrusel() {
         <div className={estilos.pista}>
           {[...IMAGENES_PLACEHOLDER, ...IMAGENES_PLACEHOLDER].map((img, i) => (
             <div key={`${img.id}-${i}`} className={estilos.tarjeta}>
-              <div
-                className={estilos.imagenPlaceholder}
-                role="img"
-                aria-label={img.alt}
-                data-src={img.dataSrc}
-              >
-                <span className={estilos.iconoPlaceholder}>🎂</span>
+              <div className={estilos.imagenPlaceholder}>
+                <img className={estilos.foto} src={img.dataSrc} alt={img.alt} loading="lazy" />
               </div>
               <p className={estilos.etiquetaImagen}>{img.alt}</p>
             </div>
